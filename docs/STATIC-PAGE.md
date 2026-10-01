@@ -25,3 +25,5 @@ The five external source/evidence file links were resolved through the GitHub co
 These are actual Chrome captures of the static case study. The landscape artwork is explicitly an illustration; neither capture proves Android device execution.
 
 Vercel's existing integration may generate a preview when the branch is pushed. Its exact-head status is reported separately; a successful static preview cannot resolve the missing legacy Xamarin toolchain or unverified live backend.
+
+Source/evidence links use immutable reviewed Android-source commit `af374e9398ce67f7728b9191301a27135fd9da12`, so deleting the PR branch will not break the case study. This evidence commit predates the static page; it contains the verified word selector, removed client secrets, and truthful Android notes.
