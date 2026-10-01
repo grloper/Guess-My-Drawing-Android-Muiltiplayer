@@ -30,3 +30,11 @@ Potential work remains: canvas uploads currently start for every touch event and
 ## Positioning
 
 Keep as a historical mobile game and canvas-learning project; prioritize a maintained Android migration before calling it a ready multiplayer product. Suggested repository name: `guess-my-drawing-android`. No license change or repository rename was made.
+
+## Static project page
+
+`site/` is a deliberate source-based case-study page, not a browser port of the Android game. It labels illustrations as artwork and separates inspected source, checked word logic, and unverified Android/Firebase execution.
+
+Build with Node 24: `npm run build`. Preview locally: `python -m http.server 8765 --bind 127.0.0.1 --directory dist`. The dependency-free build copies exactly four reviewed static files to `dist/`; Android source, archives and Firebase configuration are excluded.
+
+`vercel.json` selects no framework, runs this build and publishes `dist/`. `package.json` pins Node `24.x`, overriding the inherited unsupported Node 18 setting according to Vercel's documented version selection. No account settings are modified. Preview success is verified separately from Android execution; platform permissions/root-directory settings may still need owner action.
