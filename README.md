@@ -1,5 +1,7 @@
 # Guess My Drawing
 
+![Project identity banner](docs/cover.svg)
+
 A Xamarin.Android drawing-and-guessing prototype with a custom touch canvas and Firebase-backed room code. This is substantial historical application source, with networking and Android execution still unverified in this review.
 
 ## What the implementation contains
