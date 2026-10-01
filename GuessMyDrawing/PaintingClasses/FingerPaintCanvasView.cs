@@ -34,8 +34,8 @@ namespace OfekVentura_Project
 
         IFirebaseConfig config = new FirebaseConfig()
         {
-            AuthSecret = "Gq3wvgf3S61XTy92Dhg5fDdh5qpDdmGW0ERpnDn4",
-            BasePath = "https://ofekventuraproject-69677-default-rtdb.europe-west1.firebasedatabase.app/"
+            AuthSecret = "", // Privileged credentials must never ship in a client.
+            BasePath = "https://configure-your-own-test-backend.invalid/"
         };
         IFirebaseClient client;
         // This method uploads a base64 encoded image of the current canvas to Firebase Realtime Database using FireSharp.
