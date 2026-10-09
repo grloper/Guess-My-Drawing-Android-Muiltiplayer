@@ -1,10 +1,4 @@
-﻿using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,15 +13,17 @@ namespace OfekVentura_Project
         public static List<string> GetRandomWords()
         {
             List<string> randomWords = new List<string>();
-            HashSet<int> indexes = new HashSet<int>();
-            while (indexes.Count < 3)
+            HashSet<string> words = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            lock (random)
+            {
+            while (words.Count < 3)
             {
                 int index = random.Next(wordList.Length);
-                if (!indexes.Contains(index))
+                if (words.Add(wordList[index]))
                 {
-                    indexes.Add(index);
-                    randomWords.Add(wordList[index].ToUpper());
+                    randomWords.Add(wordList[index].ToUpperInvariant());
                 }
+            }
             }
             return randomWords;
         }

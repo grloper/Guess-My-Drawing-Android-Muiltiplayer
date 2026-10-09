@@ -1,0 +1,8 @@
+{
+  "name": "guess-my-drawing-project-page",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static source-based case study for a historical Xamarin.Android drawing game",
+  "engines": { "node": "24.x" },
+  "scripts": { "build": "node scripts/build-site.mjs" }
+}

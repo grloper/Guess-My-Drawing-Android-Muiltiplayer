@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="430" viewBox="0 0 560 430" role="img" aria-labelledby="title desc">
+  <title id="title">A little imagination</title><desc id="desc">Identity illustration of a hand-drawn landscape, not a screenshot of the Android app.</desc>
+  <defs><pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="11" cy="11" r="1" fill="#d7dfcd"/></pattern></defs>
+  <rect width="560" height="430" rx="8" fill="#fafbf5"/><rect width="560" height="430" rx="8" fill="url(#dots)"/>
+  <path d="M28 51V27h24M507 27h25v24M532 379v24h-25M52 403H28v-24" fill="none" stroke="#a8b69f" stroke-width="2"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M125 170c-29-3-43-30-26-51 10-13 27-12 39-7-1-31 41-48 63-21 16-22 51-7 48 19 37-7 48 38 25 53-27 18-109 8-149 7z" stroke="#173c47" stroke-width="5"/>
+    <path d="M102 174c53 4 116 6 161-6" stroke="#65bda7" stroke-width="3"/>
+    <circle cx="386" cy="132" r="36" fill="#f6d981" stroke="#d59b46" stroke-width="4"/>
+    <path d="m383 72-1-17m44 29 12-13m5 63 18-1m-35 44 12 13m-57 1-1 17m-36-35-14 12m-2-54-17-3m33-35-12-12" stroke="#d59b46" stroke-width="4"/>
+    <path d="M73 319c48-89 81-76 119-26 61-104 109-130 152-49 31-31 70-13 98 27l46 48" stroke="#173c47" stroke-width="5"/>
+    <path d="M99 323c46-60 73-48 98-21 66-92 110-123 148-43 26-22 54-4 92 61" stroke="#76b495" stroke-width="3"/>
+    <path d="M85 345c102 8 260-7 386 1" stroke="#173c47" stroke-width="4"/>
+    <path d="m162 231 6 13m-41-22 4 15m71-36 7 12" stroke="#76b495" stroke-width="3"/>
+  </g>
+  <g transform="translate(450 230) rotate(25)"><rect width="18" height="108" rx="3" fill="#ed9562" stroke="#173c47" stroke-width="2"/><path d="M0 108h18l-9 22z" fill="#edd5ac" stroke="#173c47" stroke-width="2"/><path d="m5 120 4 10 4-10" fill="#173c47"/><rect y="-13" width="18" height="15" rx="4" fill="#c3f26a" stroke="#173c47" stroke-width="2"/><path d="M6 7v92" stroke="#fff2db" stroke-width="3"/></g>
+  <text x="54" y="384" fill="#62725c" font-family="Arial,sans-serif" font-size="10" letter-spacing="2">WHAT COULD THIS BE?</text>
+</svg>

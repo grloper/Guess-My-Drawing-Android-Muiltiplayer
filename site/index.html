@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Guess My Drawing: a source-based case study of a Xamarin.Android drawing game. Explore its touch canvas, verified word logic, and honest runtime status.">
+  <meta name="theme-color" content="#173c47">
+  <title>Guess My Drawing — Android project notes</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23173c47'/%3E%3Cpath d='M12 28l3-9L27 7l6 6-12 12z' fill='%23c3f26a'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header shell">
+    <a class="brand" href="#" aria-label="Guess My Drawing home"><span class="brand-mark" aria-hidden="true">✎</span> Guess My Drawing<span class="brand-dot" aria-hidden="true">.</span></a>
+    <nav aria-label="Main navigation"><a href="#inside">Inside the project</a><a href="#evidence">Evidence</a><a class="nav-source" href="https://github.com/grloper/Guess-My-Drawing-Android-Muiltiplayer/tree/af374e9398ce67f7728b9191301a27135fd9da12">Source <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main id="main">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="little-line"></span> ANDROID PROJECT NOTES</p>
+        <h1 id="hero-title">A canvas.<br>Three words.<br><span>A shared challenge.</span></h1>
+        <p class="intro">A drawing-and-guessing prototype built in C#, with a custom touch canvas and Firebase-backed room code. A look at what the source contains—and what has actually been checked.</p>
+        <div class="actions"><a class="button primary" href="#inside">Explore the project <span aria-hidden="true">↓</span></a><a class="text-link" href="#evidence">See the evidence <span aria-hidden="true">↗</span></a></div>
+        <div class="tech"><span>Xamarin.Android</span><span>C#</span><span>Firebase</span></div>
+      </div>
+      <figure class="hero-art">
+        <div class="art-heading"><span class="small-dot" aria-hidden="true"></span> START WITH A LITTLE IMAGINATION <span aria-hidden="true">01</span></div>
+        <img src="canvas-concept.svg" width="560" height="430" alt="Illustrated canvas with a hand-drawn sun, cloud, hills and a pencil">
+        <figcaption><span class="caption-mark" aria-hidden="true">✳</span> Identity illustration. Not a device screenshot or playable demo.</figcaption>
+      </figure>
+    </section>
+    <div class="status-strip shell"><span class="status-label">CURRENT STATUS</span><p><strong>Historical Android prototype.</strong> Word logic verified locally; device execution and multiplayer remain unverified.</p><a href="#readiness">Read the limits <span aria-hidden="true">↓</span></a></div>
+
+    <section class="section shell" id="inside" aria-labelledby="inside-title">
+      <div class="section-heading"><div><p class="eyebrow">01 / THE IMPLEMENTATION</p><h2 id="inside-title">Small idea.<br>Real moving parts.</h2></div><p>Touch input, a word selector, and room-backed gameplay live in the Android source. These are implementation findings, not claims of a released app.</p></div>
+      <div class="feature-grid">
+        <article class="feature"><span class="feature-num">01</span><div class="feature-icon" aria-hidden="true">✎</div><h3>A custom canvas</h3><p>Tracks in-progress and completed finger strokes. Brush color, stroke width, clearing, and PNG snapshots are implemented in a custom Android View.</p><a href="https://github.com/grloper/Guess-My-Drawing-Android-Muiltiplayer/blob/af374e9398ce67f7728b9191301a27135fd9da12/GuessMyDrawing/PaintingClasses/FingerPaintCanvasView.cs">Inspect canvas source <span aria-hidden="true">↗</span></a><span class="badge">SOURCE INSPECTED</span></article>
+        <article class="feature"><span class="feature-num">02</span><div class="feature-icon" aria-hidden="true">Aa</div><h3>Three distinct choices</h3><p>Word selection returns three distinct choices, uses consistent uppercase across locales, and protects the shared random generator during concurrent calls.</p><a href="https://github.com/grloper/Guess-My-Drawing-Android-Muiltiplayer/blob/af374e9398ce67f7728b9191301a27135fd9da12/GuessMyDrawing/PaintingClasses/PictionaryWordGenerator.cs">Inspect word selector <span aria-hidden="true">↗</span></a><span class="badge verified">LOGIC CHECKED</span></article>
+        <article class="feature"><span class="feature-num">03</span><div class="feature-icon" aria-hidden="true">↔</div><h3>A room to share</h3><p>Room creation, joining, image upload, authentication screens, and guessing flows are present. Live Firebase behavior and room authorization still need validation.</p><a href="https://github.com/grloper/Guess-My-Drawing-Android-Muiltiplayer/blob/af374e9398ce67f7728b9191301a27135fd9da12/GuessMyDrawing/LobbyActivity.cs">Inspect room source <span aria-hidden="true">↗</span></a><span class="badge">RUNTIME UNVERIFIED</span></article>
+      </div>
+    </section>
+
+    <section class="evidence" id="evidence" aria-labelledby="evidence-title"><div class="shell evidence-inner">
+      <div><p class="eyebrow">02 / THE EVIDENCE</p><h2 id="evidence-title">Show the work.</h2><p class="evidence-intro">A narrow, repeatable check of the actual word-selector source. It uses synthetic calls and never contacts Firebase.</p><a class="button light" href="https://github.com/grloper/Guess-My-Drawing-Android-Muiltiplayer/blob/af374e9398ce67f7728b9191301a27135fd9da12/checks/Program.cs">Read the check <span aria-hidden="true">↗</span></a></div>
+      <div class="proof-card"><p class="proof-label">PRODUCTION LOGIC / LOCAL CHECK</p><div class="proof-number">10,000<span>concurrent draws checked</span></div><ul><li>Three distinct word choices per draw</li><li>Invariant uppercase, including Turkish locale</li><li>Production C# file compiled directly</li></ul><p class="proof-note">A test count—not users, traffic, or Android runtime coverage.</p><details><summary>Repeat the check locally</summary><p>With .NET SDK 10 installed, from the repository root:</p><pre><code>dotnet run --project checks/LogicChecks.csproj</code></pre><p>No Android device, backend credentials, or account is required.</p></details></div>
+    </div></section>
+
+    <section class="section shell readiness" id="readiness" aria-labelledby="readiness-title"><div class="section-heading"><div><p class="eyebrow">03 / WHAT COMES NEXT</p><h2 id="readiness-title">A clear path<br>to the next build.</h2></div><p>The source is worth preserving. A maintained toolchain and a safe backend are the next steps before calling it a ready multiplayer product.</p></div>
+      <div class="readiness-grid"><article><span class="step">A</span><h3>Restore device execution</h3><p>The app targets legacy Xamarin.Android v12.0. The attempted build failed because the Xamarin Android targets are missing. No APK, emulator run, or device capture was produced.</p></article><article><span class="step">B</span><h3>Validate a safe backend</h3><p>Privileged client credentials were removed. Current backend placeholders deliberately do not connect. Authentication, database rules, room access and reconnect behavior need a reviewed test environment.</p></article><article><span class="step">C</span><h3>Refine canvas synchronization</h3><p>The source uploads on touch events and draws a View from background work. UI-thread snapshots and throttled synchronization need validation on Android.</p></article></div>
+      <div class="project-note"><strong>About this page</strong><p>A static case study and branding page. It does not run the Android app, authenticate users, or connect to a room. Historical images and videos are not used as proof of a current build.</p></div>
+    </section>
+    <section class="closing shell"><p>Keep the idea.<br><strong>Make the next build count.</strong></p><a class="button primary" href="https://github.com/grloper/Guess-My-Drawing-Android-Muiltiplayer/blob/af374e9398ce67f7728b9191301a27135fd9da12/README.md">Read the project notes <span aria-hidden="true">↗</span></a></section>
+  </main>
+  <footer class="shell footer"><a class="brand" href="#">Guess My Drawing<span class="brand-dot" aria-hidden="true">.</span></a><p>Source-based project notes · Verified 2026-10-01</p><a href="https://github.com/grloper">grloper <span aria-hidden="true">↗</span></a></footer>
+</body>
+</html>

@@ -1,4 +1,4 @@
-﻿using Android.App;
+using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
@@ -24,8 +24,8 @@ namespace OfekVentura_Project
     {
         IFirebaseConfig config = new FirebaseConfig()
         {
-            AuthSecret = "Gq3wvgf3S61XTy92Dhg5fDdh5qpDdmGW0ERpnDn4",
-            BasePath = "https://ofekventuraproject-69677-default-rtdb.europe-west1.firebasedatabase.app/"
+            AuthSecret = "", // Privileged credentials must never ship in a client.
+            BasePath = "https://configure-your-own-test-backend.invalid/"
         };
         IFirebaseClient client;
         private TextView tvCode,tvPlayers;
